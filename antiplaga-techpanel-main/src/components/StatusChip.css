@@ -1,0 +1,53 @@
+.status-chip {
+  --background: var(--home-hover);
+  --color: var(--home-text);
+  margin: 0;
+  height: 28px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 14px;
+  padding: 0 12px;
+  transition: all 0.2s ease;
+}
+
+.status-chip .label {
+  color: var(--home-text-active);
+  font-weight: 600;
+}
+
+.status-chip .count {
+  color: var(--home-text);
+  margin-left: 4px;
+  font-weight: 500;
+}
+
+/* Type-specific styles */
+.status-chip.draft {
+  --background: rgba(99, 102, 241, 0.1);
+}
+
+.status-chip.draft .label {
+  color: var(--home-primary);
+}
+
+.status-chip.offline {
+  --background: rgba(245, 158, 11, 0.1);
+}
+
+.status-chip.offline .label {
+  color: var(--home-warning);
+}
+
+.status-chip.confirmed {
+  --background: rgba(16, 185, 129, 0.1);
+}
+
+.status-chip.confirmed .label {
+  color: var(--home-success);
+}
+
+/* Hover effect */
+.status-chip:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px var(--home-shadow);
+} 

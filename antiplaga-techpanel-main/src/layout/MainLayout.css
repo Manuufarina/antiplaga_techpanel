@@ -1,0 +1,139 @@
+/* MainLayout.css */
+:root {
+  --nav-primary: #7C3AED;  /* Violeta principal */
+  --nav-primary-light: #A78BFA;  /* Violeta claro */
+  --nav-background: #FFFFFF;
+  --nav-text: #6B7280;  /* Gris azulado */
+  --nav-text-active: #1F2937;  /* Gris oscuro */
+  --nav-hover: #F3F4F6;  /* Gris muy claro */
+  --nav-shadow: rgba(124, 58, 237, 0.08);  /* Sombra violeta más suave */
+  --nav-height: 52px;  /* Altura reducida */
+  --nav-icon-size: 20px;
+  --nav-font-size: 11px;
+}
+
+.main-tab-bar {
+  --background: var(--nav-background);
+  --border: none;
+  box-shadow: 0 -1px 6px var(--nav-shadow);
+  height: var(--nav-height);
+  padding: 3px 0;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  position: relative;
+  z-index: 100;
+}
+
+.main-tab-bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--nav-primary-light),
+    var(--nav-primary),
+    var(--nav-primary-light),
+    transparent
+  );
+  opacity: 0.3;
+}
+
+.main-tab-bar ion-tab-button {
+  --color: var(--nav-text);
+  --color-selected: var(--nav-primary);
+  --padding-top: 3px;
+  --padding-bottom: 3px;
+  --ripple-color: var(--nav-primary-light);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+  --background: transparent;
+  --background-hover: var(--nav-hover);
+  --background-hover-opacity: 0.6;
+  min-height: var(--nav-height);
+}
+
+.main-tab-bar ion-tab-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--nav-primary), var(--nav-primary-light));
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 0 0 4px 4px;
+  opacity: 0.9;
+}
+
+.main-tab-bar ion-tab-button.tab-selected::before {
+  width: 20px;
+}
+
+.main-tab-bar ion-tab-button ion-icon {
+  font-size: var(--nav-icon-size);
+  margin-bottom: 2px;
+  transition: all 0.2s ease-in-out;
+  opacity: 0.8;
+}
+
+.main-tab-bar ion-tab-button.tab-selected ion-icon {
+  transform: translateY(-1px);
+  color: var(--nav-primary);
+  opacity: 1;
+}
+
+.main-tab-bar ion-tab-button ion-label {
+  font-size: var(--nav-font-size);
+  font-weight: 500;
+  margin-top: 2px;
+  transition: all 0.2s ease-in-out;
+  opacity: 0.8;
+}
+
+/* Active tab styles */
+.main-tab-bar ion-tab-button.tab-selected {
+  --color: var(--nav-primary);
+}
+
+.main-tab-bar ion-tab-button.tab-selected ion-label {
+  color: var(--nav-text-active);
+  font-weight: 600;
+  opacity: 1;
+}
+
+/* Hover effect */
+.main-tab-bar ion-tab-button:hover {
+  --background: var(--nav-hover);
+}
+
+.main-tab-bar ion-tab-button:hover ion-icon {
+  transform: translateY(-1px);
+  color: var(--nav-primary-light);
+  opacity: 0.9;
+}
+
+.main-tab-bar ion-tab-button:hover ion-label {
+  opacity: 0.9;
+}
+
+/* Subtle animation for tab changes */
+@keyframes tabFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.main-tab-bar ion-tab-button.tab-selected {
+  animation: tabFadeIn 0.2s ease-out;
+} 

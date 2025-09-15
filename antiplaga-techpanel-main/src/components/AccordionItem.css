@@ -1,0 +1,32 @@
+.item-accordion {
+    padding: 8px;
+    padding-bottom: 14px;
+    margin: 8px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.item-accordion-content {
+    transition: 0.2s all linear;
+    height: 0px;
+    display: none;
+    padding: 4px;
+}
+.item-accordion-content.active {
+    transition: 0.2s all linear;
+    height: inherit;
+    display: block;
+}
+
+.item-accordion-title {
+    display: flex;
+    align-items: center;
+}
+
+.rotated {
+    transition: 0.09s transform linear;
+    transform: rotate(90deg);
+}
+
+.chevron {
+    width: 24px;
+}

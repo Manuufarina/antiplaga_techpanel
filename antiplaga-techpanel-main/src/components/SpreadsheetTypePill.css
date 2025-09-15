@@ -1,0 +1,14 @@
+.spreadsheet-type-pill {
+    padding: 6px;
+    color: white;
+    font-size: 12px;
+    border-radius: 8px;
+}
+
+.bug {
+    background: #3e398e;
+}
+
+.rodent {
+    background: #398e3d;
+}

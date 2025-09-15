@@ -1,0 +1,180 @@
+//@font-face {
+//  font-family: 'Lato';
+//  src: url('./src/theme/fonts/lato/Lato-Regular.ttf');
+//}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('../theme/fonts/nunito/Nunito-ExtraLight.ttf');
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('../theme/fonts/nunito/Nunito-Regular.ttf');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('../theme/fonts/nunito/Nunito-SemiBold.ttf');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('../theme/fonts/nunito/Nunito-Bold.ttf');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('../theme/fonts/nunito/Nunito-ExtraBold.ttf');
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('../theme/fonts/nunito/Nunito-Black.ttf');
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('../theme/fonts/nunito/Nunito-Bold.ttf');
+  font-weight: 500;
+}
+
+html {
+  --ion-font-family: "Nunito", sans-serif !important;
+  font-weight: 400;
+}
+
+.logo {
+  width: 240px;
+  align-items: center;
+}
+
+.floating-button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+.status {
+  .item {
+    background: transparent;
+    border: 1px solid blue;
+    border-radius: 4px;
+    color: blue;
+    padding: 4px 8px;
+    margin: 0px 4px;
+
+    &.active {
+      background: blue;
+      color: white;
+    }
+  }
+}
+
+.sigCanvas {
+  border: 1px solid black;
+  background: white;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+.aclaration {
+  text-align: center;
+  font-size: 0.9em;
+  color: #444;
+  font-style: italic;
+  background: #eee;
+  border-radius: 8px;
+  padding: 14px 4px;
+  margin: 0 32px;
+}
+
+.note {
+  text-align: center;
+  font-size: 0.9em;
+  color: #444;
+  font-style: italic;
+  background: #eee;
+  border-radius: 8px;
+  padding: 14px 4px;
+  margin: 16px 32px;
+  border-left: 3px solid orange;
+}
+
+ion-icon {
+  color: black;
+}
+
+.button-delete {
+  width: 16px;
+}
+
+ion-toolbar {
+  --min-height: 40px;
+}
+
+ion-header {
+  ion-title {
+    margin-top: 4px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 800;
+    color: #444;
+  }
+}
+
+.header-md::after {
+  background-image: none;
+  box-shadow: 1px 1px 5px -1px rgba(0, 0, 0, 0.25);
+  //border-bottom: 1px solid #eee;
+}
+
+.align-center {
+  display: flex;
+  justify-content: center;
+}
+
+.logout {
+  color: #888;
+  text-align: center;
+  font-style: italic;
+  text-decoration: underline;
+}
+
+ion-card-header {
+  border-bottom: 1px solid #eee;
+  padding: 10px 16px;
+}
+
+ion-card-title {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.center-gris {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+}
+
+.lotNumber {
+  display: block;
+  margin-top: -2px;
+  font-size: 0.7em;
+  color: #888;
+}
+
+.versionNumber {
+  text-align: center;
+  font-size: 10px;
+  color: #888;
+}

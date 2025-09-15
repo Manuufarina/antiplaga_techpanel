@@ -1,0 +1,118 @@
+/* StepRodentSelector.css */
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    width: 100%;
+}
+
+.mass-select-item {
+    --background: #F8FAFC;
+    --border-radius: 12px;
+    margin: 16px 0;
+    padding: 8px 16px;
+    width: 100%;
+}
+
+.mass-select-item ion-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1F2937;
+}
+
+.sector-accordion {
+    margin: 8px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    width: 100%;
+}
+
+.sector-header {
+    --background: #F8FAFC;
+    --border-radius: 12px;
+    --padding-start: 16px;
+    --padding-end: 16px;
+    --min-height: 48px;
+    width: 100%;
+}
+
+.sector-header ion-icon {
+    font-size: 18px;
+    margin-right: 8px;
+    color: #6366F1;
+}
+
+.sector-header ion-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1F2937;
+}
+
+.location-item {
+    --background: white;
+    --padding-start: 16px;
+    --padding-end: 16px;
+    --min-height: 56px;
+    margin: 4px 0;
+    width: 100%;
+}
+
+.location-number {
+    font-size: 12px;
+    color: var(--ion-color-medium);
+    margin-right: 8px;
+}
+
+.location-name {
+    font-size: 16px;
+    font-weight: 500;
+    color: #1F2937;
+    flex: 1;
+}
+
+.location-select {
+    --background: #F8FAFC;
+    --border-radius: 8px;
+    --padding-start: 8px;
+    --padding-end: 8px;
+    --min-height: 32px;
+    --padding-top: 4px;
+    --padding-bottom: 4px;
+    width: 140px;
+}
+
+.save-button {
+    --border-radius: 12px;
+    --padding-top: 12px;
+    --padding-bottom: 12px;
+    margin: 8px 16px;
+    width: calc(100% - 32px);
+}
+
+/* Estilos para el contenido del acordeón */
+.accordion-content {
+    padding: 16px;
+    background: white;
+    width: 100%;
+}
+
+/* Contenedor principal */
+ion-content {
+    --padding-start: 16px;
+    --padding-end: 16px;
+}
+
+/* Ajustes para el grupo de acordeones */
+ion-accordion-group {
+    width: 100%;
+    padding: 0;
+}
+
+/* Ajustes para los items dentro del acordeón */
+ion-item {
+    --padding-start: 16px;
+    --padding-end: 16px;
+    width: 100%;
+} 

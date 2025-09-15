@@ -1,0 +1,351 @@
+/* Home.css */
+:root {
+  --home-primary: #6366F1;
+  --home-primary-light: #818CF8;
+  --home-background: #FFFFFF;
+  --home-text: #64748B;
+  --home-text-active: #1E293B;
+  --home-hover: #F8FAFC;
+  --home-shadow: rgba(0, 0, 0, 0.03);
+  --home-success: #10B981;
+  --home-warning: #F59E0B;
+  --home-danger: #EF4444;
+  --home-border-radius: 16px;
+  --home-spacing: 16px;
+  --home-content-padding: 12px;
+}
+
+/* Header styles */
+ion-header ion-toolbar {
+  --background: var(--home-background);
+  --border-color: transparent;
+  box-shadow: 0 2px 10px var(--home-shadow);
+  padding: 0 var(--home-spacing);
+}
+
+ion-header ion-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--home-text-active);
+}
+
+/* Welcome section */
+.welcome-section {
+  text-align: center;
+  padding: var(--home-spacing) 0;
+}
+
+.welcome-section p {
+  color: var(--home-text);
+  font-size: 0.9rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--home-spacing) 0;
+}
+
+.logo-container ion-img {
+  width: 100px;
+  height: auto;
+  border-radius: var(--home-border-radius);
+  box-shadow: 0 4px 12px var(--home-shadow);
+}
+
+/* Accordion styles */
+ion-accordion-group {
+  margin: var(--home-spacing) 0;
+  padding: 0 var(--home-spacing);
+}
+
+ion-accordion {
+  margin-bottom: 12px;
+  border-radius: var(--home-border-radius);
+  overflow: hidden;
+  box-shadow: 0 2px 8px var(--home-shadow);
+}
+
+ion-accordion ion-item {
+  --background: var(--home-background);
+  --padding-start: var(--home-spacing);
+  --padding-end: var(--home-spacing);
+  --min-height: 52px;
+  --border-radius: var(--home-border-radius);
+}
+
+ion-accordion ion-item ion-label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--home-text-active);
+}
+
+ion-accordion ion-item ion-label strong {
+  color: var(--home-text-active);
+  font-weight: 600;
+}
+
+/* Count badge styles */
+ion-accordion ion-item[slot="header"] ion-label strong {
+  color: var(--home-text-active);
+  font-weight: 600;
+}
+
+ion-accordion ion-item[slot="header"] ion-label .count-badge {
+  color: var(--home-text);
+  font-weight: 400;
+  margin-left: 4px;
+}
+
+ion-accordion ion-item[slot="header"] ion-label .count-badge.has-items {
+  color: var(--home-primary);
+  font-weight: 500;
+}
+
+/* Content styles */
+ion-accordion div[slot="content"] {
+  padding: var(--home-content-padding);
+  background: var(--home-background);
+}
+
+ion-accordion div[slot="content"] ion-list {
+  margin: -4px 0;
+}
+
+/* Card styles */
+ion-card {
+  margin: 8px 0;
+  border-radius: var(--home-border-radius);
+  box-shadow: 0 2px 8px var(--home-shadow);
+  --background: var(--home-background);
+}
+
+ion-card-header {
+  padding: var(--home-content-padding) var(--home-spacing);
+}
+
+ion-card-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--home-text-active);
+}
+
+ion-card-content {
+  padding: var(--home-content-padding) var(--home-spacing);
+  font-size: 0.85rem;
+  color: var(--home-text);
+  line-height: 1.4;
+}
+
+/* List styles */
+ion-list {
+  padding: 0;
+  background: transparent;
+}
+
+ion-item {
+  --padding-start: var(--home-spacing);
+  --padding-end: var(--home-spacing);
+  --min-height: 52px;
+  --background: var(--home-background);
+  margin: 8px 0;
+  border-radius: var(--home-border-radius);
+  box-shadow: 0 2px 8px var(--home-shadow);
+}
+
+ion-item h3 {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--home-text-active);
+  margin: 0;
+  line-height: 1.4;
+}
+
+ion-item p {
+  font-size: 0.85rem;
+  color: var(--home-text);
+  margin: 4px 0 0;
+  line-height: 1.4;
+}
+
+/* Status icons */
+ion-icon[color="success"] {
+  color: var(--home-success);
+  font-size: 1.2rem;
+}
+
+ion-icon[color="warning"] {
+  color: var(--home-warning);
+  font-size: 1.2rem;
+}
+
+ion-icon[color="danger"] {
+  color: var(--home-danger);
+  font-size: 1.2rem;
+}
+
+/* Button styles */
+ion-button {
+  --border-radius: var(--home-border-radius);
+  --box-shadow: 0 2px 8px var(--home-shadow);
+  margin: var(--home-spacing) 0;
+  font-weight: 500;
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+}
+
+/* Version number */
+.versionNumber {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--home-text);
+  margin: var(--home-spacing) 0;
+  opacity: 0.7;
+  font-weight: 500;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+ion-accordion {
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* Hover effects */
+ion-item:hover {
+  --background: var(--home-hover);
+  transition: background-color 0.2s ease;
+}
+
+ion-card:hover {
+  --background: var(--home-hover);
+  transition: background-color 0.2s ease;
+}
+
+/* Empty state styles */
+ion-item.empty-state {
+  --background: transparent;
+  --padding-start: var(--home-content-padding);
+  --padding-end: var(--home-content-padding);
+  --min-height: 32px;
+  margin: 2px 0;
+  opacity: 0.7;
+}
+
+ion-item.empty-state ion-label {
+  font-size: 0.8rem;
+  color: var(--home-text);
+  font-weight: 400;
+  text-align: center;
+  margin: 0;
+  letter-spacing: 0.2px;
+}
+
+/* Adjust accordion content padding */
+ion-accordion div[slot="content"] {
+  padding: var(--home-content-padding);
+  background: var(--home-background);
+}
+
+/* Adjust list item margins */
+ion-list ion-item:not(.empty-state) {
+  margin: 8px 0;
+}
+
+/* Adjust card margins in accordion */
+ion-accordion div[slot="content"] ion-card {
+  margin: 8px 0;
+}
+
+/* Adjust button margins in accordion */
+ion-accordion div[slot="content"] ion-button {
+  margin: 12px 0 4px;
+}
+
+/* Unfinished visits card styles */
+ion-card.unfinished-visit {
+  --background: var(--home-background);
+  margin: 6px 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.08);
+  border: 1px solid rgba(124, 58, 237, 0.1);
+  transition: all 0.2s ease;
+}
+
+ion-card.unfinished-visit:hover {
+  box-shadow: 0 3px 12px rgba(124, 58, 237, 0.12);
+  border-color: rgba(124, 58, 237, 0.2);
+}
+
+ion-card.unfinished-visit ion-card-header {
+  padding: 12px;
+  border-bottom: 1px solid rgba(124, 58, 237, 0.08);
+}
+
+ion-card.unfinished-visit ion-card-title {
+  color: var(--home-text-active);
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+ion-card.unfinished-visit ion-card-content {
+  padding: 12px;
+}
+
+ion-card.unfinished-visit .steps-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--home-text);
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}
+
+ion-card.unfinished-visit .steps-badge {
+  background: rgba(124, 58, 237, 0.08);
+  color: var(--home-primary);
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+ion-card.unfinished-visit .draft-info {
+  margin-bottom: 12px;
+  padding: 6px 8px;
+  background: rgba(124, 58, 237, 0.04);
+  border-radius: 6px;
+  border-left: 3px solid var(--home-primary);
+}
+
+ion-card.unfinished-visit .draft-info small {
+  color: var(--home-text);
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+ion-card.unfinished-visit .continue-button {
+  --background: transparent;
+  --background-hover: rgba(124, 58, 237, 0.04);
+  --color: var(--home-primary);
+  --border-radius: 6px;
+  --padding-start: 10px;
+  --padding-end: 10px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin: 0;
+  height: 28px;
+} 

@@ -1,0 +1,115 @@
+/* StepBugSelector.css */
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.sector-accordion {
+    margin-bottom: 8px;
+}
+
+.sector-header {
+    --background: var(--ion-color-light);
+    --color: var(--ion-color-dark);
+    font-weight: 500;
+}
+
+.sector-header ion-icon {
+    font-size: 16px;
+    margin-right: 8px;
+    color: #6366F1;
+}
+
+.sector-header ion-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1F2937;
+}
+
+.location-accordion {
+    margin: 4px 0;
+    width: 100%;
+}
+
+.location-header {
+    --background: transparent;
+    --padding-start: 12px;
+    --padding-end: 12px;
+    --min-height: 48px;
+    width: 100%;
+}
+
+.location-number {
+    font-size: 11px;
+    color: var(--ion-color-medium);
+    margin-right: 6px;
+}
+
+.location-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1F2937;
+}
+
+.bug-item {
+    --background: transparent;
+    --padding-start: 12px;
+    --padding-end: 12px;
+    --min-height: 40px;
+    margin: 2px 0;
+    width: 100%;
+}
+
+.bug-name {
+    font-size: 13px;
+    color: #1F2937;
+    flex: 1;
+}
+
+.bug-input-item {
+    --padding-start: 32px;
+    --inner-padding-end: 16px;
+}
+
+.bug-input {
+    --background: #F8FAFC;
+    --border-radius: 6px;
+    --padding-start: 6px;
+    --padding-end: 6px;
+    --min-height: 28px;
+    --padding-top: 2px;
+    --padding-bottom: 2px;
+    width: 70px;
+    text-align: center;
+}
+
+.save-button {
+    margin: 16px;
+    --border-radius: 8px;
+}
+
+/* Estilos para el contenido del acordeón */
+.accordion-content {
+    padding: 8px 0;
+}
+
+/* Contenedor principal */
+ion-content {
+    --padding-start: 12px;
+    --padding-end: 12px;
+}
+
+/* Ajustes para el grupo de acordeones */
+ion-accordion-group {
+    width: 100%;
+    padding: 0;
+}
+
+/* Ajustes para los items dentro del acordeón */
+ion-item {
+    --padding-start: 12px;
+    --padding-end: 12px;
+    width: 100%;
+} 

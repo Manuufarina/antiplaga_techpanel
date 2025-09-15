@@ -1,0 +1,13 @@
+.status-popover .popover-content {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+ion-item.ion-invalid.ion-touched {
+  --border-color: var(--ion-color-danger, #eb445a);
+  --highlight-color-invalid: var(--ion-color-danger, #eb445a);
+}
+
+ion-item.ion-invalid.ion-touched ion-textarea {
+  color: var(--ion-color-danger, #eb445a);
+} 
