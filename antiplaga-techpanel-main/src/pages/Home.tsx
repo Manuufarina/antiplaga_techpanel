@@ -58,7 +58,6 @@ const Home: React.FC = () => {
     initialized.current = true;
   }, [lastVisits.length, drafts.length, offline.length]);
 
-
   const retrySingleOffline = async (visit: any) => {
     console.log("🔄 retrySingleOffline - Sincronizando visita individual:", visit);
     setSyncingIds([visit.id]);

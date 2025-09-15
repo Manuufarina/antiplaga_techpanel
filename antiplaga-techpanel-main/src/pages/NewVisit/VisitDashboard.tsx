@@ -86,10 +86,11 @@ const VisitDashboard: React.FC = () => {
     const missingSteps   = useMemo(() => getMissingSteps(), [visitCreation, getMissingSteps]);
 
     const handleSaveVisit = async () => {
-        const missing = getMissingSteps().filter(step => 
-            step !== 'Observaciones' && 
-            step !== 'Firma Cliente' && 
-            step !== 'Documentos'
+        const missing = getMissingSteps().filter(step =>
+            step !== 'Observaciones' &&
+            step !== 'Firma Cliente' &&
+            step !== 'Documentos' &&
+            (visitCreation.id ? step !== 'Firma Técnico' : true)
         );
         
         if (missing.length > 0) {
