@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useRef} from "react";
 import {
   IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonImg,
-  IonItemDivider, IonAccordionGroup, IonAccordion, IonItem,
+  IonAccordionGroup, IonAccordion, IonItem,
   IonLabel, IonList, IonButton, IonSpinner, IonCard,
   IonCardHeader, IonCardTitle, IonCardContent, useIonViewWillEnter,
   IonIcon
@@ -132,7 +132,7 @@ const Home: React.FC = () => {
     const res = await api.getLastVisits(user.id);
     if (res.isSuccess) {
       const backend = res.getValue()!;
-              const offline = useVisitsStore.getState().list.filter(v => (v as any).sync_status === "failed");
+      const offline = useVisitsStore.getState().list.filter(v => (v as any).sync_status === "failed");
       setLastVisits([...backend, ...offline]);
     }
   };
