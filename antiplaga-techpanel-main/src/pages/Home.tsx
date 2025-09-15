@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useRef} from "react";
 import {
   IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonImg,
-  IonItemDivider, IonAccordionGroup, IonAccordion, IonItem,
+  IonAccordionGroup, IonAccordion, IonItem,
   IonLabel, IonList, IonButton, IonSpinner, IonCard,
   IonCardHeader, IonCardTitle, IonCardContent, useIonViewWillEnter,
   IonIcon
@@ -11,16 +11,21 @@ import { useHistory } from "react-router";
 import AntiplagaLogoImage from "../images/antiplagalogo.jpg";
 import { useAuthStore } from "../store/authStore";
 import { useVisitsStore } from "../store/visitsStore";
+import { useCommonStore } from "../store/commonStore";
 import { VisitEntity } from "../models/VisitEntity";
 import Antiplaga from "../api/Antiplaga";
 import "./Home.css";
-import { goToDashboard } from "../helpers/visitNavigation";
+import { goToDashboard as navigateToDashboard } from "../helpers/visitNavigation";
 
 const Home: React.FC = () => {
   const user = useAuthStore(s => s.user)!;
   const history            = useHistory();
   const drafts             = useVisitsStore(s => s.drafts);
   const loadDraft          = useVisitsStore(s => s.loadDraft);
+  const showLoader         = useCommonStore(s => s.showLoader);
+  const resetVisitCreation = useVisitsStore(s => s.resetVisitCreation);
+  const saveSelectedSS     = useVisitsStore(s => s.saveSelectedSpreadsheet);
+  const saveVisitCreation  = useVisitsStore(s => s.saveVisitCreation);
 
   const [lastVisits, setLastVisits] = useState<VisitEntity[]>([]);
   const [syncingIds, setSyncingIds] = useState<number[]>([]);
@@ -57,6 +62,15 @@ const Home: React.FC = () => {
 
     initialized.current = true;
   }, [lastVisits.length, drafts.length, offline.length]);
+
+  const goToDashboard = async (v: VisitEntity) => {
+    await navigateToDashboard(v, history, {
+      showLoader,
+      resetVisitCreation,
+      saveSelectedSpreadsheet: saveSelectedSS,
+      saveVisitCreation,
+    });
+  };
 
   const retrySingleOffline = async (visit: any) => {
     console.log("🔄 retrySingleOffline - Sincronizando visita individual:", visit);
@@ -233,7 +247,7 @@ const Home: React.FC = () => {
               <div slot="content">
                 <IonList>
                   {confirmed.length ? confirmed.map(v => (
-                      <IonItem key={v.id} button onClick={() => goToDashboard(v, history)}>
+                      <IonItem key={v.id} button onClick={() => goToDashboard(v)}>
                         <IonLabel>
                           <h3>{v.spreadsheet?.name} – #{v.number}</h3>
                           <p>{v.date}</p>
