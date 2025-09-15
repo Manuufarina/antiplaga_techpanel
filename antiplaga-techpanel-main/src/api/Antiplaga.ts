@@ -177,6 +177,23 @@ export default class Antiplaga {
     }
   }
 
+  async getMonthlyVisitLog(userId: number, from: string, to: string): Promise<Result<VisitEntity[]>> {
+    try {
+      const response = await this.authCall(
+        "GET",
+        `/users/${userId}/visits?from=${from}&to=${to}`
+      )
+      return Result.ok<VisitEntity[]>(response.data.visits)
+    } catch (e: any) {
+      if (e.message === "Network Error") {
+        alert("Hemos detectado problemas de conexión")
+        return Result.fail("Hemos detectado problemas de conexión")
+      } else {
+        return Result.fail<VisitEntity[]>(e.response.data.message)
+      }
+    }
+  }
+
   async getLocations(
     spreadsheet_id: number
   ): Promise<Result<LocationEntity[]>> {

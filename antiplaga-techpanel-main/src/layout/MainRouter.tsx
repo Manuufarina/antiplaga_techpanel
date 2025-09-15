@@ -9,6 +9,7 @@ import Home from "../pages/Home";
 import Profile from "../pages/Profile";
 import IncidentsPage from "../pages/IncidentsPage";
 import IncidentDetailPage from "../pages/IncidentDetailPage";
+import VisitLog from "../pages/VisitLog";
 import { IonIcon, IonLabel, IonPage, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from "@ionic/react";
 import { build, home, person, alertCircle } from "ionicons/icons";
 import { useAuthStore } from "../store/authStore";
@@ -43,6 +44,7 @@ const MainRouter: React.FC = () => {
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/incidents" component={IncidentsPage} />
             <Route exact path="/incidents/:id" component={IncidentDetailPage} />
+            <Route exact path="/visit-log" component={VisitLog} />
             <Redirect exact path="/" to="/home" />
           </IonRouterOutlet>
 

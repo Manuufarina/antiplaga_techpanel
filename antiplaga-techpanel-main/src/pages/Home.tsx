@@ -7,26 +7,20 @@ import {
   IonIcon
 } from "@ionic/react";
 import { checkmarkCircle, closeCircle } from "ionicons/icons";
-import _ from "lodash";
 import { useHistory } from "react-router";
 import AntiplagaLogoImage from "../images/antiplagalogo.jpg";
 import { useAuthStore } from "../store/authStore";
 import { useVisitsStore } from "../store/visitsStore";
-import { useCommonStore } from "../store/commonStore";
 import { VisitEntity } from "../models/VisitEntity";
-import { DocumentEntity } from "../models/DocumentEntity";
 import Antiplaga from "../api/Antiplaga";
 import "./Home.css";
+import { goToDashboard } from "../helpers/visitNavigation";
 
 const Home: React.FC = () => {
   const user = useAuthStore(s => s.user)!;
-  const showLoader         = useCommonStore(s => s.showLoader);
   const history            = useHistory();
   const drafts             = useVisitsStore(s => s.drafts);
   const loadDraft          = useVisitsStore(s => s.loadDraft);
-  const resetVisitCreation = useVisitsStore(s => s.resetVisitCreation);
-  const saveSelectedSS     = useVisitsStore(s => s.saveSelectedSpreadsheet);
-  const saveVisitCreation  = useVisitsStore(s => s.saveVisitCreation);
 
   const [lastVisits, setLastVisits] = useState<VisitEntity[]>([]);
   const [syncingIds, setSyncingIds] = useState<number[]>([]);
@@ -64,39 +58,6 @@ const Home: React.FC = () => {
     initialized.current = true;
   }, [lastVisits.length, drafts.length, offline.length]);
 
-  const goToDashboard = async (v: VisitEntity) => {
-    showLoader(true);
-    resetVisitCreation();
-    saveSelectedSS(v.spreadsheet);
-    const obj = {
-      id: v.id,
-      selectedSpreadsheet: v.spreadsheet,
-      type: v.spreadsheet.type,
-      rodentsData: v.rodent_data,
-      inProgress: true,
-      bugsData: _.chain(v.bug_data as any[])
-          .groupBy("location.id")
-          .map(vals => ({
-            location: vals[0].location,
-            bugsCaptured: vals.map(x => ({ bug: x.bug, quantity: x.quantity }))
-          })).value(),
-      comment: v.comments,
-      signatureClient: "",
-      signatureTechnical: "",
-      documents: (v.documents as any[]).map(d => ({
-        base64image: d.base64 as string,
-        type: d.type
-      })) as DocumentEntity[],
-      products: v.products.map((p: any) => ({
-        product: p, dose: p.dose, lotNumber: p.lot_number
-      })),
-      number: v.number,
-      date: v.date
-    };
-    saveVisitCreation(obj);
-    history.push("/new-visit/dashboard");
-    showLoader(false);
-  };
 
   const retrySingleOffline = async (visit: any) => {
     console.log("🔄 retrySingleOffline - Sincronizando visita individual:", visit);
@@ -151,6 +112,10 @@ const Home: React.FC = () => {
           <div className="logo-container">
             <IonImg src={AntiplagaLogoImage} />
           </div>
+
+          <IonButton expand="block" routerLink="/visit-log">
+            Registro mensual de visitas
+          </IonButton>
 
           <IonAccordionGroup
               multiple
@@ -269,7 +234,7 @@ const Home: React.FC = () => {
               <div slot="content">
                 <IonList>
                   {confirmed.length ? confirmed.map(v => (
-                      <IonItem key={v.id} button onClick={() => goToDashboard(v)}>
+                      <IonItem key={v.id} button onClick={() => goToDashboard(v, history)}>
                         <IonLabel>
                           <h3>{v.spreadsheet?.name} – #{v.number}</h3>
                           <p>{v.date}</p>
