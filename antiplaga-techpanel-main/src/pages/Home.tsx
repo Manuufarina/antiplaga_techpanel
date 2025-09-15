@@ -81,8 +81,8 @@ const Home: React.FC = () => {
             bugsCaptured: vals.map(x => ({ bug: x.bug, quantity: x.quantity }))
           })).value(),
       comment: v.comments,
-      signatureClient: "",
-      signatureTechnical: "",
+      signatureClient: (v as any).signatureClient || (v as any).signature_client,
+      signatureTechnical: (v as any).signatureTechnical || (v as any).signature_technical,
       documents: (v.documents as any[]).map(d => ({
         base64image: d.base64 as string,
         type: d.type

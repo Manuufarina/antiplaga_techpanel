@@ -500,7 +500,7 @@ export const useVisitsStore = create<VisitsStore>()(
                     if (!anyR) missing.push("Roedores");
                 }
                 if (!v.documents?.length) missing.push("Documentos");
-                if (!v.signatureTechnical) missing.push("Firma Técnico");
+                if (!v.signatureTechnical && !v.id) missing.push("Firma Técnico");
                 if (!v.number)            missing.push("N° Remito");
 
                 return missing;
